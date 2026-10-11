@@ -1,10 +1,10 @@
-# Bangla Speech-to-Summary
+# Bengali Audio Transcription and Summarization
 
 A web app that turns Bangla speech into a written transcript and a short summary. Upload an audio clip, and the pipeline runs automatically:
 
 **Audio → Speech recognition (fine-tuned Whisper-small) → Transcript → Summarization (fine-tuned BanglaT5) → Summary**
 
-Built as part of the thesis *"Automatic Bengali Meeting Minutes Generation using Fine-Tuned Speech Recognition and Abstractive Summarization"*.
+Built as part of the thesis *"Bengali Audio Transcription and Summarization with a Newly Developed Dataset"*.
 
 ## Features
 
@@ -33,7 +33,7 @@ Both models were fine-tuned on the project dataset of 1160 Bangla recordings wit
 - **Whisper-small:** the recordings were cut into 3713 segments of up to 28 seconds, each paired with its matching part of the transcript. The model was trained on the 2917 training segments (about 13 hours of audio) for 6 epochs (learning rate 1e-5, 100 warmup steps, effective batch size 16), keeping the checkpoint with the lowest validation WER.
 - **BanglaT5:** fine-tuned on the 928 training transcript–summary pairs for up to 20 epochs (learning rate 3e-4, early stopping on validation ROUGE-L).
 
-The trained models are too large for the repository and are published as zip files on the **[v1.0 release page](https://github.com/foyez101/Automatic-Bengali-Meeting-Minutes-Generation-using-Fine-Tuned-Speech-Recognition-and-Summarization/releases/tag/v1.0)** (about 1.8 GB in total).
+The trained models are too large for the repository and are published as zip files on the **[v1.0 release page](https://github.com/foyez101/Bengali-Audio-Transcription-and-Summarization/releases/tag/v1.0)** (about 1.8 GB in total).
 
 ## Run it locally
 
@@ -58,8 +58,8 @@ ffmpeg -version
 ### 2. Clone the repository
 
 ```powershell
-git clone https://github.com/foyez101/Automatic-Bengali-Meeting-Minutes-Generation-using-Fine-Tuned-Speech-Recognition-and-Summarization.git
-cd Automatic-Bengali-Meeting-Minutes-Generation-using-Fine-Tuned-Speech-Recognition-and-Summarization
+git clone https://github.com/foyez101/Bengali-Audio-Transcription-and-Summarization.git
+cd Bengali-Audio-Transcription-and-Summarization
 ```
 
 ### 3. Create a virtual environment and install the dependencies
@@ -86,10 +86,10 @@ The Whisper model is saved in the `transformers` 5 format, so `transformers` 5.x
 
 ### 4. Download the models
 
-Download both zip files from the [v1.0 release page](https://github.com/foyez101/Automatic-Bengali-Meeting-Minutes-Generation-using-Fine-Tuned-Speech-Recognition-and-Summarization/releases/tag/v1.0) and extract them into the project folder, or run:
+Download both zip files from the [v1.0 release page](https://github.com/foyez101/Bengali-Audio-Transcription-and-Summarization/releases/tag/v1.0) and extract them into the project folder, or run:
 
 ```powershell
-$base = "https://github.com/foyez101/Automatic-Bengali-Meeting-Minutes-Generation-using-Fine-Tuned-Speech-Recognition-and-Summarization/releases/download/v1.0"
+$base = "https://github.com/foyez101/Bengali-Audio-Transcription-and-Summarization/releases/download/v1.0"
 curl.exe -L -o whisper-bangla-v2.zip "$base/whisper-bangla-v2.zip"
 curl.exe -L -o banglat5-summary-retrained-base.zip "$base/banglat5-summary-retrained-base.zip"
 tar -xf whisper-bangla-v2.zip
